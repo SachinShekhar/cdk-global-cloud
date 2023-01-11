@@ -1,0 +1,24 @@
+{
+  "name": "cdk-stack-set",
+  "version": "0.0.1-alpha",
+  "description": "An opinionated virtual stack set construct for AWS CDK",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SachinShekhar/cdk-stack-set.git"
+  },
+  "keywords": [
+    "cloud",
+    "aws",
+    "cdk"
+  ],
+  "author": "Sachin Shekhar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SachinShekhar/cdk-stack-set/issues"
+  },
+  "homepage": "https://github.com/SachinShekhar/cdk-stack-set#readme"
+}
