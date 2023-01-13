@@ -1,6 +1,6 @@
 export interface StageProps {
   account: string;
-  terminationProtection: boolean;
+  terminationProtection?: boolean;
 }
 
 export class Stage {
@@ -11,6 +11,6 @@ export class Stage {
   constructor(name: string, props: StageProps) {
     this.name = name;
     this.account = props.account;
-    this.terminationProtection = props.terminationProtection;
+    this.terminationProtection = props.terminationProtection ?? false;
   }
 }
