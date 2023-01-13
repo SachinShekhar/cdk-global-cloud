@@ -29,5 +29,8 @@
   "prettier": {
     "singleQuote": true,
     "endOfLine": "lf"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "^2.60.0"
   }
 }
