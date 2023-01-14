@@ -2,7 +2,7 @@ import { App, Stack } from 'aws-cdk-lib';
 
 import { Region } from './region';
 import { Stage } from './stage';
-import { ConstructBuilder } from './construct-builder';
+import { StackBuilder } from './stack-builder';
 
 export interface StackSetProps {
   stage: Stage;
@@ -27,7 +27,7 @@ export abstract class StackSet {
       ...props.tags,
     };
 
-    new ConstructBuilder(scope, id + 'Global' + this.stage.name, {
+    new StackBuilder(scope, id + 'Global' + this.stage.name + 'Stack', {
       build: this.globalConstructs,
       env: {
         account: this.stage.account,
@@ -37,7 +37,7 @@ export abstract class StackSet {
     });
 
     this.regionalCoverage.forEach((region) => {
-      new ConstructBuilder(scope, id + region + this.stage.name, {
+      new StackBuilder(scope, id + region + this.stage.name + 'Stack', {
         build: this.regionalConstructs,
         env: {
           account: this.stage.account,
