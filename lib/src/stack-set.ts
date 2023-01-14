@@ -34,6 +34,7 @@ export abstract class StackSet {
         region: this.globalRegion,
       },
       tags,
+      terminationProtection: this.stage.terminationProtection,
     });
 
     this.regionalCoverage.forEach((region) => {
@@ -44,6 +45,7 @@ export abstract class StackSet {
           region,
         },
         tags,
+        terminationProtection: this.stage.terminationProtection,
       });
     });
   }
