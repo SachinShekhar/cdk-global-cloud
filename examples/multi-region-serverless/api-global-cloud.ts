@@ -48,12 +48,12 @@ export class ApiGlobalCloud extends GlobalCloud {
           'exports.handler = () => {console.log(process.env.EXAMPLE_TABLE_NAME); return "SUCCESS"}'
         ),
         environment: {
-          DATA_TABLE_NAME: this.dataGlobalTable!.tableName,
+          DATA_TABLE_NAME: this.dataGlobalTable?.tableName ?? '',
         },
         functionName: PhysicalName.GENERATE_IF_NEEDED,
       });
 
-      this.dataGlobalTable!.grant(
+      this.dataGlobalTable?.grant(
         exampleLambda,
         'dynamodb:PutItem',
         'dynamodb:GetItem',
