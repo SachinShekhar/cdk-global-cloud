@@ -1,5 +1,5 @@
 {
-  "name": "cdk-stack-set",
+  "name": "cdk-global-cloud",
   "description": "An opinionated CDK library for deploying global cloud infrastructures.",
   "version": "0.0.1-alpha",
   "license": "MIT",
@@ -25,12 +25,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SachinShekhar/cdk-stack-set.git"
+    "url": "git+https://github.com/SachinShekhar/cdk-global-cloud.git"
   },
   "bugs": {
-    "url": "https://github.com/SachinShekhar/cdk-stack-set/issues"
+    "url": "https://github.com/SachinShekhar/cdk-global-cloud/issues"
   },
-  "homepage": "https://github.com/SachinShekhar/cdk-stack-set#readme",
+  "homepage": "https://github.com/SachinShekhar/cdk-global-cloud#readme",
   "keywords": [
     "cloud",
     "aws",

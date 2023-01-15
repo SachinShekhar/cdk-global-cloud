@@ -1,14 +1,14 @@
 import * as cdk from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
 
-import { ExampleStackSet } from '../examples/multi-region-serverless/example-stack-set';
+import { ApiGlobalCloud } from '../examples/multi-region-serverless/api-global-cloud';
 import { Stage } from '../lib';
 
 const app = new cdk.App();
 
-describe('ExampleStackSet', () => {
+describe('API Global Cloud', () => {
   test('synthesizes correctly', () => {
-    const exampleStackSet = new ExampleStackSet(
+    const exampleStackSet = new ApiGlobalCloud(
       app,
       new Stage('Dev', { account: '0123456789' })
     );

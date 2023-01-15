@@ -6,10 +6,10 @@ import {
   Stack,
 } from 'aws-cdk-lib';
 
-import { Regions, StackSet, Stage } from '../../lib';
+import { Regions, GlobalCloud, Stage } from '../../lib';
 
-export class ExampleStackSet extends StackSet {
-  exampleGlobalTable?: dynamodb.Table;
+export class ApiGlobalCloud extends GlobalCloud {
+  dataGlobalTable?: dynamodb.Table;
 
   constructor(scope: App, stage: Stage) {
     super(scope, 'Example', {
@@ -26,9 +26,9 @@ export class ExampleStackSet extends StackSet {
 
   globalStackBuilder() {
     return (scope: Stack) => {
-      this.exampleGlobalTable = new dynamodb.Table(scope, 'ExampleTable', {
+      this.dataGlobalTable = new dynamodb.Table(scope, 'DataTable', {
         partitionKey: {
-          name: 'exampleKey',
+          name: 'entityId',
           type: dynamodb.AttributeType.STRING,
         },
         replicationRegions: this.regionalCoverage.filter(
@@ -41,19 +41,19 @@ export class ExampleStackSet extends StackSet {
 
   regionalStackBuilder() {
     return (scope: Stack) => {
-      const exampleLambda = new lambda.Function(scope, 'ExampleLambda', {
+      const exampleLambda = new lambda.Function(scope, 'ApiHandler', {
         runtime: lambda.Runtime.NODEJS_14_X,
         handler: 'handler',
         code: lambda.Code.fromInline(
           'exports.handler = () => {console.log(process.env.EXAMPLE_TABLE_NAME); return "SUCCESS"}'
         ),
         environment: {
-          EXAMPLE_TABLE_NAME: this.exampleGlobalTable!.tableName,
+          DATA_TABLE_NAME: this.dataGlobalTable!.tableName,
         },
         functionName: PhysicalName.GENERATE_IF_NEEDED,
       });
 
-      this.exampleGlobalTable!.grant(
+      this.dataGlobalTable!.grant(
         exampleLambda,
         'dynamodb:PutItem',
         'dynamodb:GetItem',

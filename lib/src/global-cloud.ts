@@ -3,42 +3,42 @@ import { App, Stack, StackProps } from 'aws-cdk-lib';
 import { Region } from './region';
 import { Stage } from './stage';
 
-export interface StackSetStackProps extends StackProps {
+export interface GlobalCloudStackProps extends StackProps {
   readonly builder: (scope: Stack) => void;
 }
 
-export class StackSetStack extends Stack {
-  constructor(scope: App, id: string, props: StackSetStackProps) {
+export class GlobalCloudStack extends Stack {
+  constructor(scope: App, id: string, props: GlobalCloudStackProps) {
     super(scope, id, props);
     props.builder(this);
   }
 }
 
-export interface StackSetProps {
+export interface GlobalCloudProps {
   stage: Stage;
   globalRegion?: Region;
   regionalCoverage: Region[];
   tags?: { [key: string]: string };
 }
 
-export abstract class StackSet {
+export abstract class GlobalCloud {
   readonly stage: Stage;
   readonly globalRegion: Region;
   readonly regionalCoverage: Region[];
   readonly generatedStacks: Stack[];
 
-  constructor(scope: App, id: string, props: StackSetProps) {
+  constructor(scope: App, id: string, props: GlobalCloudProps) {
     this.stage = props.stage;
     this.globalRegion = props.globalRegion ?? 'us-east-1';
     this.regionalCoverage = props.regionalCoverage;
 
     const tags = {
-      stackSet: id,
+      globalCloud: id,
       stage: this.stage.name,
       ...props.tags,
     };
 
-    const globalStack = new StackSetStack(
+    const globalStack = new GlobalCloudStack(
       scope,
       id + 'Global' + this.stage.name + 'Stack',
       {
@@ -55,7 +55,7 @@ export abstract class StackSet {
     this.generatedStacks = [globalStack];
 
     this.regionalCoverage.forEach((region) => {
-      const regionalStack = new StackSetStack(
+      const regionalStack = new GlobalCloudStack(
         scope,
         id + region + this.stage.name + 'Stack',
         {

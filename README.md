@@ -1,3 +1,3 @@
-# cdk-stack-set
+# cdk-global-cloud
 
-An opinionated CDK library for deploying global cloud infrastructures.
+An opinionated CDK library for implementing global cloud infrastructures.
