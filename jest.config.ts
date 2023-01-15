@@ -1,21 +1,18 @@
-const { pathsToModuleNameMapper } = require('ts-jest/utils');
-const { compilerOptions } = require('./tsconfig');
+import type { Config } from 'jest';
 
-const jestConfig = async () => ({
+const jestConfig: Config = {
   preset: 'ts-jest',
   testEnvironment: 'node',
   rootDir: '.',
   testMatch: ['<rootDir>/tests/**/*.test.ts'],
   moduleFileExtensions: ['ts', 'js', 'json', 'node'],
-  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
-    prefix: '<rootDir>/',
-  }),
   collectCoverage: true,
   collectCoverageFrom: [
     '<rootDir>/lib/**/*.ts',
     '<rootDir>/examples/**/*.ts',
     '!<rootDir>/tests/**',
     '!<rootDir>/node_modules/**',
+    '!<rootDir>/examples/multi-region-serverless/index.ts',
   ],
   coverageThreshold: {
     global: {
@@ -26,6 +23,6 @@ const jestConfig = async () => ({
     },
   },
   cacheDirectory: '<rootDir>/.cache/jest',
-});
+};
 
-module.exports = jestConfig;
+export default jestConfig;
