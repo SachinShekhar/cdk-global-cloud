@@ -1,8 +1,18 @@
-import { App, Stack } from 'aws-cdk-lib';
+import { App, Stack, StackProps } from 'aws-cdk-lib';
 
 import { Region } from './region';
 import { Stage } from './stage';
-import { StackBuilder } from './stack-builder';
+
+export interface StackSetStackProps extends StackProps {
+  readonly builder: (scope: Stack) => void;
+}
+
+export class StackSetStack extends Stack {
+  constructor(scope: App, id: string, props: StackSetStackProps) {
+    super(scope, id, props);
+    props.builder(this);
+  }
+}
 
 export interface StackSetProps {
   stage: Stage;
@@ -27,8 +37,8 @@ export abstract class StackSet {
       ...props.tags,
     };
 
-    new StackBuilder(scope, id + 'Global' + this.stage.name + 'Stack', {
-      build: this.globalConstructs,
+    new StackSetStack(scope, id + 'Global' + this.stage.name + 'Stack', {
+      builder: this.globalStackBuilder(),
       env: {
         account: this.stage.account,
         region: this.globalRegion,
@@ -38,8 +48,8 @@ export abstract class StackSet {
     });
 
     this.regionalCoverage.forEach((region) => {
-      new StackBuilder(scope, id + region + this.stage.name + 'Stack', {
-        build: this.regionalConstructs,
+      new StackSetStack(scope, id + region + this.stage.name + 'Stack', {
+        builder: this.regionalStackBuilder(),
         env: {
           account: this.stage.account,
           region,
@@ -50,6 +60,7 @@ export abstract class StackSet {
     });
   }
 
-  abstract globalConstructs(scope: Stack): void;
-  abstract regionalConstructs(scope: Stack): void;
+  abstract globalStackBuilder(): (scope: Stack) => void;
+
+  abstract regionalStackBuilder(): (scope: Stack) => void;
 }
