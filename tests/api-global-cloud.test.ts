@@ -13,12 +13,8 @@ describe('API Global Cloud', () => {
       new Stage('Dev', { account: '0123456789' })
     );
 
-    const globalTemplate = Template.fromStack(
-      apiGlobalCloud.generatedStacks[0]
-    );
-    const regionalTemplate = Template.fromStack(
-      apiGlobalCloud.generatedStacks[1]
-    );
+    const globalTemplate = Template.fromStack(apiGlobalCloud.stacks[0]);
+    const regionalTemplate = Template.fromStack(apiGlobalCloud.stacks[1]);
 
     expect(globalTemplate.toJSON()).toMatchSnapshot();
     expect(regionalTemplate.toJSON()).toMatchSnapshot();

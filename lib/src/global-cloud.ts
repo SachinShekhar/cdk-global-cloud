@@ -15,7 +15,7 @@ export abstract class GlobalCloud {
   readonly stage: Stage;
   readonly globalRegion: Region;
   readonly regionalCoverage: Region[];
-  readonly generatedStacks: Stack[];
+  readonly stacks: Stack[];
 
   constructor(scope: App, id: string, props: GlobalCloudProps) {
     this.stage = props.stage;
@@ -42,12 +42,12 @@ export abstract class GlobalCloud {
       }
     );
 
-    this.generatedStacks = [globalStack];
+    this.stacks = [globalStack];
 
     this.regionalCoverage.forEach((region) => {
       const regionalStack = new GlobalCloudStack(
         scope,
-        id + region + this.stage.name + 'Stack',
+        id + region.toUpperCase() + this.stage.name + 'Stack',
         {
           builder: this.regionalStackBuilder(),
           env: {
@@ -59,7 +59,7 @@ export abstract class GlobalCloud {
         }
       );
 
-      this.generatedStacks.push(regionalStack);
+      this.stacks.push(regionalStack);
     });
   }
 
