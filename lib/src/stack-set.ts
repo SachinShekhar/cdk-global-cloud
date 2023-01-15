@@ -25,6 +25,7 @@ export abstract class StackSet {
   readonly stage: Stage;
   readonly globalRegion: Region;
   readonly regionalCoverage: Region[];
+  readonly generatedStacks: Stack[];
 
   constructor(scope: App, id: string, props: StackSetProps) {
     this.stage = props.stage;
@@ -37,26 +38,38 @@ export abstract class StackSet {
       ...props.tags,
     };
 
-    new StackSetStack(scope, id + 'Global' + this.stage.name + 'Stack', {
-      builder: this.globalStackBuilder(),
-      env: {
-        account: this.stage.account,
-        region: this.globalRegion,
-      },
-      tags,
-      terminationProtection: this.stage.terminationProtection,
-    });
-
-    this.regionalCoverage.forEach((region) => {
-      new StackSetStack(scope, id + region + this.stage.name + 'Stack', {
-        builder: this.regionalStackBuilder(),
+    const globalStack = new StackSetStack(
+      scope,
+      id + 'Global' + this.stage.name + 'Stack',
+      {
+        builder: this.globalStackBuilder(),
         env: {
           account: this.stage.account,
-          region,
+          region: this.globalRegion,
         },
         tags,
         terminationProtection: this.stage.terminationProtection,
-      });
+      }
+    );
+
+    this.generatedStacks = [globalStack];
+
+    this.regionalCoverage.forEach((region) => {
+      const regionalStack = new StackSetStack(
+        scope,
+        id + region + this.stage.name + 'Stack',
+        {
+          builder: this.regionalStackBuilder(),
+          env: {
+            account: this.stage.account,
+            region,
+          },
+          tags,
+          terminationProtection: this.stage.terminationProtection,
+        }
+      );
+
+      this.generatedStacks.push(regionalStack);
     });
   }
 
