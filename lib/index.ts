@@ -1,4 +1,3 @@
 export { StackSet, StackSetProps } from './src/stack-set';
 export { Stage, StageProps } from './src/stage';
-export { Region } from './src/region';
-export { Regions } from './src/regions';
+export { Region, Regions } from './src/region';
