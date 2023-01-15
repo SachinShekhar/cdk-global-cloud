@@ -1,10 +1,15 @@
 {
   "name": "cdk-stack-set",
+  "description": "An opinionated CDK library for deploying global cloud infrastructures.",
   "version": "0.0.1-alpha",
-  "description": "An opinionated virtual stack set construct for AWS CDK",
+  "license": "MIT",
+  "author": "Sachin Shekhar",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "tsc",
+    "prepare": "npm run build"
   },
   "dependencies": {
     "aws-cdk-lib": "^2.60.0"
@@ -22,19 +27,16 @@
     "type": "git",
     "url": "git+https://github.com/SachinShekhar/cdk-stack-set.git"
   },
+  "bugs": {
+    "url": "https://github.com/SachinShekhar/cdk-stack-set/issues"
+  },
+  "homepage": "https://github.com/SachinShekhar/cdk-stack-set#readme",
   "keywords": [
     "cloud",
     "aws",
     "cdk"
   ],
-  "author": "Sachin Shekhar",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/SachinShekhar/cdk-stack-set/issues"
-  },
-  "homepage": "https://github.com/SachinShekhar/cdk-stack-set#readme",
-  "prettier": {
-    "singleQuote": true,
-    "endOfLine": "lf"
-  }
+  "files": [
+    "dist"
+  ]
 }
