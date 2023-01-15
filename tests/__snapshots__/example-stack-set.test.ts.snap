@@ -1,0 +1,1431 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExampleStackSet synthesizes correctly 1`] = `
+{
+  "Outputs": {
+    "ExportsOutputFnGetAttExampleTable114D508FArnBFC1361C": {
+      "Export": {
+        "Name": "ExampleGlobalDevStack:ExportsOutputFnGetAttExampleTable114D508FArnBFC1361C",
+      },
+      "Value": {
+        "Fn::GetAtt": [
+          "ExampleTable114D508F",
+          "Arn",
+        ],
+      },
+    },
+    "ExportsOutputRefExampleTable114D508FC90D0804": {
+      "Export": {
+        "Name": "ExampleGlobalDevStack:ExportsOutputRefExampleTable114D508FC90D0804",
+      },
+      "Value": {
+        "Ref": "ExampleTable114D508F",
+      },
+    },
+  },
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "ExampleTable114D508F": {
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "exampleKey",
+            "AttributeType": "S",
+          },
+        ],
+        "BillingMode": "PAY_PER_REQUEST",
+        "KeySchema": [
+          {
+            "AttributeName": "exampleKey",
+            "KeyType": "HASH",
+          },
+        ],
+        "StreamSpecification": {
+          "StreamViewType": "NEW_AND_OLD_IMAGES",
+        },
+        "TableName": "exampleglobaldevstacktackexampletable863dbfb50b7fdef058a9",
+      },
+      "Type": "AWS::DynamoDB::Table",
+      "UpdateReplacePolicy": "Retain",
+    },
+    "ExampleTableReplicaapnortheast18C47FC31": {
+      "DeletionPolicy": "Delete",
+      "DependsOn": [
+        "ExampleTableReplicaapsoutheast32F42DF01",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderIsCompleteHandlerServiceRoleB53F776D12324DC2",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderOnEventHandlerServiceRole0C09ABFE971238DF",
+      ],
+      "Properties": {
+        "Region": "ap-northeast-1",
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "awscdkawsdynamodbReplicaProviderNestedStackawscdkawsdynamodbReplicaProviderNestedStackResource18E3F12D",
+            "Outputs.ExampleGlobalDevStackawscdkawsdynamodbReplicaProviderframeworkonEvent3996E6EDArn",
+          ],
+        },
+        "TableName": {
+          "Ref": "ExampleTable114D508F",
+        },
+      },
+      "Type": "Custom::DynamoDBReplica",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "ExampleTableReplicaapnortheast27F11612E": {
+      "DeletionPolicy": "Delete",
+      "DependsOn": [
+        "ExampleTableReplicaapnortheast18C47FC31",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderIsCompleteHandlerServiceRoleB53F776D12324DC2",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderOnEventHandlerServiceRole0C09ABFE971238DF",
+      ],
+      "Properties": {
+        "Region": "ap-northeast-2",
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "awscdkawsdynamodbReplicaProviderNestedStackawscdkawsdynamodbReplicaProviderNestedStackResource18E3F12D",
+            "Outputs.ExampleGlobalDevStackawscdkawsdynamodbReplicaProviderframeworkonEvent3996E6EDArn",
+          ],
+        },
+        "TableName": {
+          "Ref": "ExampleTable114D508F",
+        },
+      },
+      "Type": "Custom::DynamoDBReplica",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "ExampleTableReplicaapnortheast30D278408": {
+      "DeletionPolicy": "Delete",
+      "DependsOn": [
+        "ExampleTableReplicaapnortheast27F11612E",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderIsCompleteHandlerServiceRoleB53F776D12324DC2",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderOnEventHandlerServiceRole0C09ABFE971238DF",
+      ],
+      "Properties": {
+        "Region": "ap-northeast-3",
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "awscdkawsdynamodbReplicaProviderNestedStackawscdkawsdynamodbReplicaProviderNestedStackResource18E3F12D",
+            "Outputs.ExampleGlobalDevStackawscdkawsdynamodbReplicaProviderframeworkonEvent3996E6EDArn",
+          ],
+        },
+        "TableName": {
+          "Ref": "ExampleTable114D508F",
+        },
+      },
+      "Type": "Custom::DynamoDBReplica",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "ExampleTableReplicaapsouth1AA503E13": {
+      "DeletionPolicy": "Delete",
+      "DependsOn": [
+        "ExampleTableReplicaeusouth20CBCF457",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderIsCompleteHandlerServiceRoleB53F776D12324DC2",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderOnEventHandlerServiceRole0C09ABFE971238DF",
+      ],
+      "Properties": {
+        "Region": "ap-south-1",
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "awscdkawsdynamodbReplicaProviderNestedStackawscdkawsdynamodbReplicaProviderNestedStackResource18E3F12D",
+            "Outputs.ExampleGlobalDevStackawscdkawsdynamodbReplicaProviderframeworkonEvent3996E6EDArn",
+          ],
+        },
+        "TableName": {
+          "Ref": "ExampleTable114D508F",
+        },
+      },
+      "Type": "Custom::DynamoDBReplica",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "ExampleTableReplicaapsouth229D6B128": {
+      "DeletionPolicy": "Delete",
+      "DependsOn": [
+        "ExampleTableReplicaapsouth1AA503E13",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderIsCompleteHandlerServiceRoleB53F776D12324DC2",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderOnEventHandlerServiceRole0C09ABFE971238DF",
+      ],
+      "Properties": {
+        "Region": "ap-south-2",
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "awscdkawsdynamodbReplicaProviderNestedStackawscdkawsdynamodbReplicaProviderNestedStackResource18E3F12D",
+            "Outputs.ExampleGlobalDevStackawscdkawsdynamodbReplicaProviderframeworkonEvent3996E6EDArn",
+          ],
+        },
+        "TableName": {
+          "Ref": "ExampleTable114D508F",
+        },
+      },
+      "Type": "Custom::DynamoDBReplica",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "ExampleTableReplicaapsoutheast1F3CEBB5F": {
+      "DeletionPolicy": "Delete",
+      "DependsOn": [
+        "ExampleTableReplicaapsouth229D6B128",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderIsCompleteHandlerServiceRoleB53F776D12324DC2",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderOnEventHandlerServiceRole0C09ABFE971238DF",
+      ],
+      "Properties": {
+        "Region": "ap-southeast-1",
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "awscdkawsdynamodbReplicaProviderNestedStackawscdkawsdynamodbReplicaProviderNestedStackResource18E3F12D",
+            "Outputs.ExampleGlobalDevStackawscdkawsdynamodbReplicaProviderframeworkonEvent3996E6EDArn",
+          ],
+        },
+        "TableName": {
+          "Ref": "ExampleTable114D508F",
+        },
+      },
+      "Type": "Custom::DynamoDBReplica",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "ExampleTableReplicaapsoutheast2D99A0E42": {
+      "DeletionPolicy": "Delete",
+      "DependsOn": [
+        "ExampleTableReplicaapsoutheast1F3CEBB5F",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderIsCompleteHandlerServiceRoleB53F776D12324DC2",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderOnEventHandlerServiceRole0C09ABFE971238DF",
+      ],
+      "Properties": {
+        "Region": "ap-southeast-2",
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "awscdkawsdynamodbReplicaProviderNestedStackawscdkawsdynamodbReplicaProviderNestedStackResource18E3F12D",
+            "Outputs.ExampleGlobalDevStackawscdkawsdynamodbReplicaProviderframeworkonEvent3996E6EDArn",
+          ],
+        },
+        "TableName": {
+          "Ref": "ExampleTable114D508F",
+        },
+      },
+      "Type": "Custom::DynamoDBReplica",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "ExampleTableReplicaapsoutheast32F42DF01": {
+      "DeletionPolicy": "Delete",
+      "DependsOn": [
+        "ExampleTableReplicaapsoutheast2D99A0E42",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderIsCompleteHandlerServiceRoleB53F776D12324DC2",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderOnEventHandlerServiceRole0C09ABFE971238DF",
+      ],
+      "Properties": {
+        "Region": "ap-southeast-3",
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "awscdkawsdynamodbReplicaProviderNestedStackawscdkawsdynamodbReplicaProviderNestedStackResource18E3F12D",
+            "Outputs.ExampleGlobalDevStackawscdkawsdynamodbReplicaProviderframeworkonEvent3996E6EDArn",
+          ],
+        },
+        "TableName": {
+          "Ref": "ExampleTable114D508F",
+        },
+      },
+      "Type": "Custom::DynamoDBReplica",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "ExampleTableReplicacacentral1558F5E57": {
+      "DeletionPolicy": "Delete",
+      "DependsOn": [
+        "ExampleTableReplicauswest264C20071",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderIsCompleteHandlerServiceRoleB53F776D12324DC2",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderOnEventHandlerServiceRole0C09ABFE971238DF",
+      ],
+      "Properties": {
+        "Region": "ca-central-1",
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "awscdkawsdynamodbReplicaProviderNestedStackawscdkawsdynamodbReplicaProviderNestedStackResource18E3F12D",
+            "Outputs.ExampleGlobalDevStackawscdkawsdynamodbReplicaProviderframeworkonEvent3996E6EDArn",
+          ],
+        },
+        "TableName": {
+          "Ref": "ExampleTable114D508F",
+        },
+      },
+      "Type": "Custom::DynamoDBReplica",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "ExampleTableReplicaeucentral10CF33210": {
+      "DeletionPolicy": "Delete",
+      "DependsOn": [
+        "ExampleTableReplicacacentral1558F5E57",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderIsCompleteHandlerServiceRoleB53F776D12324DC2",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderOnEventHandlerServiceRole0C09ABFE971238DF",
+      ],
+      "Properties": {
+        "Region": "eu-central-1",
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "awscdkawsdynamodbReplicaProviderNestedStackawscdkawsdynamodbReplicaProviderNestedStackResource18E3F12D",
+            "Outputs.ExampleGlobalDevStackawscdkawsdynamodbReplicaProviderframeworkonEvent3996E6EDArn",
+          ],
+        },
+        "TableName": {
+          "Ref": "ExampleTable114D508F",
+        },
+      },
+      "Type": "Custom::DynamoDBReplica",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "ExampleTableReplicaeucentral2F27945D5": {
+      "DeletionPolicy": "Delete",
+      "DependsOn": [
+        "ExampleTableReplicaeucentral10CF33210",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderIsCompleteHandlerServiceRoleB53F776D12324DC2",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderOnEventHandlerServiceRole0C09ABFE971238DF",
+      ],
+      "Properties": {
+        "Region": "eu-central-2",
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "awscdkawsdynamodbReplicaProviderNestedStackawscdkawsdynamodbReplicaProviderNestedStackResource18E3F12D",
+            "Outputs.ExampleGlobalDevStackawscdkawsdynamodbReplicaProviderframeworkonEvent3996E6EDArn",
+          ],
+        },
+        "TableName": {
+          "Ref": "ExampleTable114D508F",
+        },
+      },
+      "Type": "Custom::DynamoDBReplica",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "ExampleTableReplicaeunorth1FB88274E": {
+      "DeletionPolicy": "Delete",
+      "DependsOn": [
+        "ExampleTableReplicaeucentral2F27945D5",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderIsCompleteHandlerServiceRoleB53F776D12324DC2",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderOnEventHandlerServiceRole0C09ABFE971238DF",
+      ],
+      "Properties": {
+        "Region": "eu-north-1",
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "awscdkawsdynamodbReplicaProviderNestedStackawscdkawsdynamodbReplicaProviderNestedStackResource18E3F12D",
+            "Outputs.ExampleGlobalDevStackawscdkawsdynamodbReplicaProviderframeworkonEvent3996E6EDArn",
+          ],
+        },
+        "TableName": {
+          "Ref": "ExampleTable114D508F",
+        },
+      },
+      "Type": "Custom::DynamoDBReplica",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "ExampleTableReplicaeusouth15D61F573": {
+      "DeletionPolicy": "Delete",
+      "DependsOn": [
+        "ExampleTableReplicaeuwest313897E6F",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderIsCompleteHandlerServiceRoleB53F776D12324DC2",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderOnEventHandlerServiceRole0C09ABFE971238DF",
+      ],
+      "Properties": {
+        "Region": "eu-south-1",
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "awscdkawsdynamodbReplicaProviderNestedStackawscdkawsdynamodbReplicaProviderNestedStackResource18E3F12D",
+            "Outputs.ExampleGlobalDevStackawscdkawsdynamodbReplicaProviderframeworkonEvent3996E6EDArn",
+          ],
+        },
+        "TableName": {
+          "Ref": "ExampleTable114D508F",
+        },
+      },
+      "Type": "Custom::DynamoDBReplica",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "ExampleTableReplicaeusouth20CBCF457": {
+      "DeletionPolicy": "Delete",
+      "DependsOn": [
+        "ExampleTableReplicaeusouth15D61F573",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderIsCompleteHandlerServiceRoleB53F776D12324DC2",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderOnEventHandlerServiceRole0C09ABFE971238DF",
+      ],
+      "Properties": {
+        "Region": "eu-south-2",
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "awscdkawsdynamodbReplicaProviderNestedStackawscdkawsdynamodbReplicaProviderNestedStackResource18E3F12D",
+            "Outputs.ExampleGlobalDevStackawscdkawsdynamodbReplicaProviderframeworkonEvent3996E6EDArn",
+          ],
+        },
+        "TableName": {
+          "Ref": "ExampleTable114D508F",
+        },
+      },
+      "Type": "Custom::DynamoDBReplica",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "ExampleTableReplicaeuwest1277F5243": {
+      "DeletionPolicy": "Delete",
+      "DependsOn": [
+        "ExampleTableReplicaeunorth1FB88274E",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderIsCompleteHandlerServiceRoleB53F776D12324DC2",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderOnEventHandlerServiceRole0C09ABFE971238DF",
+      ],
+      "Properties": {
+        "Region": "eu-west-1",
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "awscdkawsdynamodbReplicaProviderNestedStackawscdkawsdynamodbReplicaProviderNestedStackResource18E3F12D",
+            "Outputs.ExampleGlobalDevStackawscdkawsdynamodbReplicaProviderframeworkonEvent3996E6EDArn",
+          ],
+        },
+        "TableName": {
+          "Ref": "ExampleTable114D508F",
+        },
+      },
+      "Type": "Custom::DynamoDBReplica",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "ExampleTableReplicaeuwest313897E6F": {
+      "DeletionPolicy": "Delete",
+      "DependsOn": [
+        "ExampleTableReplicaeuwest1277F5243",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderIsCompleteHandlerServiceRoleB53F776D12324DC2",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderOnEventHandlerServiceRole0C09ABFE971238DF",
+      ],
+      "Properties": {
+        "Region": "eu-west-3",
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "awscdkawsdynamodbReplicaProviderNestedStackawscdkawsdynamodbReplicaProviderNestedStackResource18E3F12D",
+            "Outputs.ExampleGlobalDevStackawscdkawsdynamodbReplicaProviderframeworkonEvent3996E6EDArn",
+          ],
+        },
+        "TableName": {
+          "Ref": "ExampleTable114D508F",
+        },
+      },
+      "Type": "Custom::DynamoDBReplica",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "ExampleTableReplicamecentral1D0003676": {
+      "DeletionPolicy": "Delete",
+      "DependsOn": [
+        "ExampleTableReplicaapnortheast30D278408",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderIsCompleteHandlerServiceRoleB53F776D12324DC2",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderOnEventHandlerServiceRole0C09ABFE971238DF",
+      ],
+      "Properties": {
+        "Region": "me-central-1",
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "awscdkawsdynamodbReplicaProviderNestedStackawscdkawsdynamodbReplicaProviderNestedStackResource18E3F12D",
+            "Outputs.ExampleGlobalDevStackawscdkawsdynamodbReplicaProviderframeworkonEvent3996E6EDArn",
+          ],
+        },
+        "TableName": {
+          "Ref": "ExampleTable114D508F",
+        },
+      },
+      "Type": "Custom::DynamoDBReplica",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "ExampleTableReplicauseast1DD54B572": {
+      "DeletionPolicy": "Delete",
+      "DependsOn": [
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderIsCompleteHandlerServiceRoleB53F776D12324DC2",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderOnEventHandlerServiceRole0C09ABFE971238DF",
+      ],
+      "Properties": {
+        "Region": "us-east-1",
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "awscdkawsdynamodbReplicaProviderNestedStackawscdkawsdynamodbReplicaProviderNestedStackResource18E3F12D",
+            "Outputs.ExampleGlobalDevStackawscdkawsdynamodbReplicaProviderframeworkonEvent3996E6EDArn",
+          ],
+        },
+        "TableName": {
+          "Ref": "ExampleTable114D508F",
+        },
+      },
+      "Type": "Custom::DynamoDBReplica",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "ExampleTableReplicauseast27AFFA85B": {
+      "DeletionPolicy": "Delete",
+      "DependsOn": [
+        "ExampleTableReplicauseast1DD54B572",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderIsCompleteHandlerServiceRoleB53F776D12324DC2",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderOnEventHandlerServiceRole0C09ABFE971238DF",
+      ],
+      "Properties": {
+        "Region": "us-east-2",
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "awscdkawsdynamodbReplicaProviderNestedStackawscdkawsdynamodbReplicaProviderNestedStackResource18E3F12D",
+            "Outputs.ExampleGlobalDevStackawscdkawsdynamodbReplicaProviderframeworkonEvent3996E6EDArn",
+          ],
+        },
+        "TableName": {
+          "Ref": "ExampleTable114D508F",
+        },
+      },
+      "Type": "Custom::DynamoDBReplica",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "ExampleTableReplicauswest196DA3B78": {
+      "DeletionPolicy": "Delete",
+      "DependsOn": [
+        "ExampleTableReplicauseast27AFFA85B",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderIsCompleteHandlerServiceRoleB53F776D12324DC2",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderOnEventHandlerServiceRole0C09ABFE971238DF",
+      ],
+      "Properties": {
+        "Region": "us-west-1",
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "awscdkawsdynamodbReplicaProviderNestedStackawscdkawsdynamodbReplicaProviderNestedStackResource18E3F12D",
+            "Outputs.ExampleGlobalDevStackawscdkawsdynamodbReplicaProviderframeworkonEvent3996E6EDArn",
+          ],
+        },
+        "TableName": {
+          "Ref": "ExampleTable114D508F",
+        },
+      },
+      "Type": "Custom::DynamoDBReplica",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "ExampleTableReplicauswest264C20071": {
+      "DeletionPolicy": "Delete",
+      "DependsOn": [
+        "ExampleTableReplicauswest196DA3B78",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderIsCompleteHandlerServiceRoleB53F776D12324DC2",
+        "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderOnEventHandlerServiceRole0C09ABFE971238DF",
+      ],
+      "Properties": {
+        "Region": "us-west-2",
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "awscdkawsdynamodbReplicaProviderNestedStackawscdkawsdynamodbReplicaProviderNestedStackResource18E3F12D",
+            "Outputs.ExampleGlobalDevStackawscdkawsdynamodbReplicaProviderframeworkonEvent3996E6EDArn",
+          ],
+        },
+        "TableName": {
+          "Ref": "ExampleTable114D508F",
+        },
+      },
+      "Type": "Custom::DynamoDBReplica",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderIsCompleteHandlerServiceRoleB53F776D12324DC2": {
+      "Properties": {
+        "Description": {
+          "Fn::Join": [
+            "",
+            [
+              "DynamoDB replication managed policy for table ",
+              {
+                "Ref": "ExampleTable114D508F",
+              },
+            ],
+          ],
+        },
+        "Path": "/",
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "dynamodb:DescribeTable",
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "ExampleTable114D508F",
+                    "Arn",
+                  ],
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+              ],
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "Roles": [
+          {
+            "Fn::GetAtt": [
+              "awscdkawsdynamodbReplicaProviderNestedStackawscdkawsdynamodbReplicaProviderNestedStackResource18E3F12D",
+              "Outputs.ExampleGlobalDevStackawscdkawsdynamodbReplicaProviderIsCompleteHandlerServiceRoleAF11925FRef",
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::ManagedPolicy",
+    },
+    "ExampleTableSourceTableAttachedManagedPolicyExampleGlobalDevStackawscdkawsdynamodbReplicaProviderOnEventHandlerServiceRole0C09ABFE971238DF": {
+      "Properties": {
+        "Description": {
+          "Fn::Join": [
+            "",
+            [
+              "DynamoDB replication managed policy for table ",
+              {
+                "Ref": "ExampleTable114D508F",
+              },
+            ],
+          ],
+        },
+        "Path": "/",
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "dynamodb:*",
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "ExampleTable114D508F",
+                    "Arn",
+                  ],
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+              ],
+            },
+            {
+              "Action": "dynamodb:*",
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:us-east-1:0123456789:table/",
+                      {
+                        "Ref": "ExampleTable114D508F",
+                      },
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:us-east-2:0123456789:table/",
+                      {
+                        "Ref": "ExampleTable114D508F",
+                      },
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:us-west-1:0123456789:table/",
+                      {
+                        "Ref": "ExampleTable114D508F",
+                      },
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:us-west-2:0123456789:table/",
+                      {
+                        "Ref": "ExampleTable114D508F",
+                      },
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:ca-central-1:0123456789:table/",
+                      {
+                        "Ref": "ExampleTable114D508F",
+                      },
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:eu-central-1:0123456789:table/",
+                      {
+                        "Ref": "ExampleTable114D508F",
+                      },
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:eu-central-2:0123456789:table/",
+                      {
+                        "Ref": "ExampleTable114D508F",
+                      },
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:eu-north-1:0123456789:table/",
+                      {
+                        "Ref": "ExampleTable114D508F",
+                      },
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:eu-west-1:0123456789:table/",
+                      {
+                        "Ref": "ExampleTable114D508F",
+                      },
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:eu-west-3:0123456789:table/",
+                      {
+                        "Ref": "ExampleTable114D508F",
+                      },
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:eu-south-1:0123456789:table/",
+                      {
+                        "Ref": "ExampleTable114D508F",
+                      },
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:eu-south-2:0123456789:table/",
+                      {
+                        "Ref": "ExampleTable114D508F",
+                      },
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:ap-south-1:0123456789:table/",
+                      {
+                        "Ref": "ExampleTable114D508F",
+                      },
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:ap-south-2:0123456789:table/",
+                      {
+                        "Ref": "ExampleTable114D508F",
+                      },
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:ap-southeast-1:0123456789:table/",
+                      {
+                        "Ref": "ExampleTable114D508F",
+                      },
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:ap-southeast-2:0123456789:table/",
+                      {
+                        "Ref": "ExampleTable114D508F",
+                      },
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:ap-southeast-3:0123456789:table/",
+                      {
+                        "Ref": "ExampleTable114D508F",
+                      },
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:ap-northeast-1:0123456789:table/",
+                      {
+                        "Ref": "ExampleTable114D508F",
+                      },
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:ap-northeast-2:0123456789:table/",
+                      {
+                        "Ref": "ExampleTable114D508F",
+                      },
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:ap-northeast-3:0123456789:table/",
+                      {
+                        "Ref": "ExampleTable114D508F",
+                      },
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:me-central-1:0123456789:table/",
+                      {
+                        "Ref": "ExampleTable114D508F",
+                      },
+                    ],
+                  ],
+                },
+              ],
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "Roles": [
+          {
+            "Fn::GetAtt": [
+              "awscdkawsdynamodbReplicaProviderNestedStackawscdkawsdynamodbReplicaProviderNestedStackResource18E3F12D",
+              "Outputs.ExampleGlobalDevStackawscdkawsdynamodbReplicaProviderOnEventHandlerServiceRoleA941DE10Ref",
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::ManagedPolicy",
+    },
+    "awscdkawsdynamodbReplicaProviderNestedStackawscdkawsdynamodbReplicaProviderNestedStackResource18E3F12D": {
+      "DeletionPolicy": "Delete",
+      "Properties": {
+        "TemplateURL": {
+          "Fn::Join": [
+            "",
+            [
+              "https://s3.eu-west-2.",
+              {
+                "Ref": "AWS::URLSuffix",
+              },
+              "/cdk-hnb659fds-assets-0123456789-eu-west-2/0fff74c0d9ee45a6e2f0fd4de608cdbfe6f1b6591d387111b4733f5046ed5ce5.json",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudFormation::Stack",
+      "UpdateReplacePolicy": "Delete",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`ExampleStackSet synthesizes correctly 2`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "ExampleLambdaF227E16E": {
+      "DependsOn": [
+        "ExampleLambdaServiceRoleDefaultPolicy13205DF7",
+        "ExampleLambdaServiceRole7F581B34",
+      ],
+      "Properties": {
+        "Code": {
+          "ZipFile": "exports.handler = () => {console.log(process.env.EXAMPLE_TABLE_NAME); return "SUCCESS"}",
+        },
+        "Environment": {
+          "Variables": {
+            "EXAMPLE_TABLE_NAME": "exampleglobaldevstacktackexampletable863dbfb50b7fdef058a9",
+          },
+        },
+        "Handler": "handler",
+        "Role": {
+          "Fn::GetAtt": [
+            "ExampleLambdaServiceRole7F581B34",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs14.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "ExampleLambdaServiceRole7F581B34": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "ExampleLambdaServiceRoleDefaultPolicy13205DF7": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "dynamodb:PutItem",
+                "dynamodb:GetItem",
+                "dynamodb:UpdateItem",
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:eu-west-2:0123456789:table/exampleglobaldevstacktackexampletable863dbfb50b7fdef058a9",
+                    ],
+                  ],
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:us-east-1:0123456789:table/exampleglobaldevstacktackexampletable863dbfb50b7fdef058a9",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:us-east-2:0123456789:table/exampleglobaldevstacktackexampletable863dbfb50b7fdef058a9",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:us-west-1:0123456789:table/exampleglobaldevstacktackexampletable863dbfb50b7fdef058a9",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:us-west-2:0123456789:table/exampleglobaldevstacktackexampletable863dbfb50b7fdef058a9",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:ca-central-1:0123456789:table/exampleglobaldevstacktackexampletable863dbfb50b7fdef058a9",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:eu-central-1:0123456789:table/exampleglobaldevstacktackexampletable863dbfb50b7fdef058a9",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:eu-central-2:0123456789:table/exampleglobaldevstacktackexampletable863dbfb50b7fdef058a9",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:eu-north-1:0123456789:table/exampleglobaldevstacktackexampletable863dbfb50b7fdef058a9",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:eu-west-1:0123456789:table/exampleglobaldevstacktackexampletable863dbfb50b7fdef058a9",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:eu-west-3:0123456789:table/exampleglobaldevstacktackexampletable863dbfb50b7fdef058a9",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:eu-south-1:0123456789:table/exampleglobaldevstacktackexampletable863dbfb50b7fdef058a9",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:eu-south-2:0123456789:table/exampleglobaldevstacktackexampletable863dbfb50b7fdef058a9",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:ap-south-1:0123456789:table/exampleglobaldevstacktackexampletable863dbfb50b7fdef058a9",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:ap-south-2:0123456789:table/exampleglobaldevstacktackexampletable863dbfb50b7fdef058a9",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:ap-southeast-1:0123456789:table/exampleglobaldevstacktackexampletable863dbfb50b7fdef058a9",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:ap-southeast-2:0123456789:table/exampleglobaldevstacktackexampletable863dbfb50b7fdef058a9",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:ap-southeast-3:0123456789:table/exampleglobaldevstacktackexampletable863dbfb50b7fdef058a9",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:ap-northeast-1:0123456789:table/exampleglobaldevstacktackexampletable863dbfb50b7fdef058a9",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:ap-northeast-2:0123456789:table/exampleglobaldevstacktackexampletable863dbfb50b7fdef058a9",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:ap-northeast-3:0123456789:table/exampleglobaldevstacktackexampletable863dbfb50b7fdef058a9",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:me-central-1:0123456789:table/exampleglobaldevstacktackexampletable863dbfb50b7fdef058a9",
+                    ],
+                  ],
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+              ],
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "ExampleLambdaServiceRoleDefaultPolicy13205DF7",
+        "Roles": [
+          {
+            "Ref": "ExampleLambdaServiceRole7F581B34",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
