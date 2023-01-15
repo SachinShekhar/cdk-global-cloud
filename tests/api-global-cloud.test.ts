@@ -8,16 +8,16 @@ const app = new cdk.App();
 
 describe('API Global Cloud', () => {
   test('synthesizes correctly', () => {
-    const exampleStackSet = new ApiGlobalCloud(
+    const apiGlobalCloud = new ApiGlobalCloud(
       app,
       new Stage('Dev', { account: '0123456789' })
     );
 
     const globalTemplate = Template.fromStack(
-      exampleStackSet.generatedStacks[0]
+      apiGlobalCloud.generatedStacks[0]
     );
     const regionalTemplate = Template.fromStack(
-      exampleStackSet.generatedStacks[1]
+      apiGlobalCloud.generatedStacks[1]
     );
 
     expect(globalTemplate.toJSON()).toMatchSnapshot();
