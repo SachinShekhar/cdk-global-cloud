@@ -12,7 +12,7 @@ export class ApiGlobalCloud extends GlobalCloud {
   dataGlobalTable?: dynamodb.Table;
 
   constructor(scope: App, stage: Stage) {
-    super(scope, 'Example', {
+    super(scope, 'API', {
       stage,
       globalRegion: 'eu-west-2',
       regionalCoverage: [

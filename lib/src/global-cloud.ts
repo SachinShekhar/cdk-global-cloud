@@ -1,18 +1,8 @@
-import { App, Stack, StackProps } from 'aws-cdk-lib';
+import { App, Stack } from 'aws-cdk-lib';
 
 import { Region } from './region';
+import { GlobalCloudStack } from './stack';
 import { Stage } from './stage';
-
-export interface GlobalCloudStackProps extends StackProps {
-  readonly builder: (scope: Stack) => void;
-}
-
-export class GlobalCloudStack extends Stack {
-  constructor(scope: App, id: string, props: GlobalCloudStackProps) {
-    super(scope, id, props);
-    props.builder(this);
-  }
-}
 
 export interface GlobalCloudProps {
   stage: Stage;
