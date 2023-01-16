@@ -1,4 +1,4 @@
-# Multi-region Serverless Infrastructure with API Gateway, AWS Lambda & DynamoDB Global Tables
+# Multi-region Serverless Infrastructure with AWS Lambda & DynamoDB Global Tables
 
 This example illustrates use of `cdk-global-cloud` to implement a global serverless infrastructure.
 
