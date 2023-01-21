@@ -1,6 +1,6 @@
 import { App, Stack } from 'aws-cdk-lib';
 
-import { Region } from './region';
+import { getRegionName, Region } from './region';
 import { GlobalCloudStack } from './stack';
 import { Stage } from './stage';
 
@@ -47,7 +47,7 @@ export abstract class GlobalCloud {
     this.regionalCoverage.forEach((region) => {
       const regionalStack = new GlobalCloudStack(
         scope,
-        id + region.toUpperCase() + this.stage.name + 'Stack',
+        id + getRegionName(region) + this.stage.name + 'Stack',
         {
           builder: this.regionalStackBuilder(region),
           env: {
