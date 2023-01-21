@@ -1402,7 +1402,7 @@ exports[`API Global Cloud synthesizes correctly 2`] = `
     },
     "ApiHandlerServiceRoleOverflowPolicy147BA3B1F": {
       "Properties": {
-        "Description": "Part of the policies for APIUS-EAST-1DevStack/ApiHandler/ServiceRole",
+        "Description": "Part of the policies for APINorthVirginiaDevStack/ApiHandler/ServiceRole",
         "Path": "/",
         "PolicyDocument": {
           "Statement": [
