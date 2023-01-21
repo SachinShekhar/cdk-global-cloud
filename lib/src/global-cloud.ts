@@ -49,7 +49,7 @@ export abstract class GlobalCloud {
         scope,
         id + region.toUpperCase() + this.stage.name + 'Stack',
         {
-          builder: this.regionalStackBuilder(),
+          builder: this.regionalStackBuilder(region),
           env: {
             account: this.stage.account,
             region,
@@ -65,5 +65,5 @@ export abstract class GlobalCloud {
 
   abstract globalStackBuilder(): (scope: Stack) => void;
 
-  abstract regionalStackBuilder(): (scope: Stack) => void;
+  abstract regionalStackBuilder(region: Region): (scope: Stack) => void;
 }
