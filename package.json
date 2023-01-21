@@ -1,7 +1,7 @@
 {
   "name": "cdk-global-cloud",
   "description": "An opinionated CDK library for deploying global cloud infrastructures.",
-  "version": "0.0.2-alpha",
+  "version": "0.0.3-alpha",
   "license": "MIT",
   "author": "Sachin Shekhar",
   "main": "dist/index.js",

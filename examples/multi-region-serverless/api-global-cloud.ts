@@ -2,11 +2,12 @@ import {
   App,
   aws_dynamodb as dynamodb,
   aws_lambda as lambda,
+  aws_iam as iam,
   PhysicalName,
   Stack,
 } from 'aws-cdk-lib';
 
-import { Regions, GlobalCloud, Stage } from '../../lib';
+import { Regions, GlobalCloud, Stage, Region } from '../../lib';
 
 export class ApiGlobalCloud extends GlobalCloud {
   dataGlobalTable?: dynamodb.Table;
@@ -39,9 +40,9 @@ export class ApiGlobalCloud extends GlobalCloud {
     };
   }
 
-  regionalStackBuilder() {
+  regionalStackBuilder(region: Region) {
     return (scope: Stack) => {
-      const exampleLambda = new lambda.Function(scope, 'ApiHandler', {
+      const apiHandler = new lambda.Function(scope, 'ApiHandler', {
         runtime: lambda.Runtime.NODEJS_14_X,
         handler: 'handler',
         code: lambda.Code.fromInline(
@@ -53,12 +54,23 @@ export class ApiGlobalCloud extends GlobalCloud {
         functionName: PhysicalName.GENERATE_IF_NEEDED,
       });
 
+      apiHandler.addPermission('sesSendEmail', {
+        principal: new iam.ServicePrincipal('ses.amazonaws.com', {
+          region,
+        }),
+        action: 'ses:SendEmail',
+      });
+
       this.dataGlobalTable?.grant(
-        exampleLambda,
+        apiHandler,
         'dynamodb:PutItem',
         'dynamodb:GetItem',
         'dynamodb:UpdateItem'
       );
+
+      if (region === 'us-east-1') {
+        this.dataGlobalTable?.grant(apiHandler, 'dynamodb:DeleteItem');
+      }
     };
   }
 }

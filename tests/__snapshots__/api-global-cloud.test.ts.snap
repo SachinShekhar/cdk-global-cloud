@@ -990,6 +990,7 @@ exports[`API Global Cloud synthesizes correctly 2`] = `
     "ApiHandler5E7490E8": {
       "DependsOn": [
         "ApiHandlerServiceRoleDefaultPolicy10321D87",
+        "ApiHandlerServiceRoleOverflowPolicy147BA3B1F",
         "ApiHandlerServiceRole592E70E9",
       ],
       "Properties": {
@@ -1398,6 +1399,372 @@ exports[`API Global Cloud synthesizes correctly 2`] = `
         ],
       },
       "Type": "AWS::IAM::Policy",
+    },
+    "ApiHandlerServiceRoleOverflowPolicy147BA3B1F": {
+      "Properties": {
+        "Description": "Part of the policies for APIUS-EAST-1DevStack/ApiHandler/ServiceRole",
+        "Path": "/",
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "dynamodb:DeleteItem",
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:eu-west-2:0123456789:table/apiglobaldevstackevstackdatatabled8b98642c101a1543054",
+                    ],
+                  ],
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:us-east-1:0123456789:table/apiglobaldevstackevstackdatatabled8b98642c101a1543054",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:us-east-2:0123456789:table/apiglobaldevstackevstackdatatabled8b98642c101a1543054",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:us-west-1:0123456789:table/apiglobaldevstackevstackdatatabled8b98642c101a1543054",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:us-west-2:0123456789:table/apiglobaldevstackevstackdatatabled8b98642c101a1543054",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:ca-central-1:0123456789:table/apiglobaldevstackevstackdatatabled8b98642c101a1543054",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:eu-central-1:0123456789:table/apiglobaldevstackevstackdatatabled8b98642c101a1543054",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:eu-central-2:0123456789:table/apiglobaldevstackevstackdatatabled8b98642c101a1543054",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:eu-north-1:0123456789:table/apiglobaldevstackevstackdatatabled8b98642c101a1543054",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:eu-west-1:0123456789:table/apiglobaldevstackevstackdatatabled8b98642c101a1543054",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:eu-west-3:0123456789:table/apiglobaldevstackevstackdatatabled8b98642c101a1543054",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:eu-south-1:0123456789:table/apiglobaldevstackevstackdatatabled8b98642c101a1543054",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:eu-south-2:0123456789:table/apiglobaldevstackevstackdatatabled8b98642c101a1543054",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:ap-south-1:0123456789:table/apiglobaldevstackevstackdatatabled8b98642c101a1543054",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:ap-south-2:0123456789:table/apiglobaldevstackevstackdatatabled8b98642c101a1543054",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:ap-southeast-1:0123456789:table/apiglobaldevstackevstackdatatabled8b98642c101a1543054",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:ap-southeast-2:0123456789:table/apiglobaldevstackevstackdatatabled8b98642c101a1543054",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:ap-southeast-3:0123456789:table/apiglobaldevstackevstackdatatabled8b98642c101a1543054",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:ap-northeast-1:0123456789:table/apiglobaldevstackevstackdatatabled8b98642c101a1543054",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:ap-northeast-2:0123456789:table/apiglobaldevstackevstackdatatabled8b98642c101a1543054",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:ap-northeast-3:0123456789:table/apiglobaldevstackevstackdatatabled8b98642c101a1543054",
+                    ],
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition",
+                      },
+                      ":dynamodb:me-central-1:0123456789:table/apiglobaldevstackevstackdatatabled8b98642c101a1543054",
+                    ],
+                  ],
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+                {
+                  "Ref": "AWS::NoValue",
+                },
+              ],
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "Roles": [
+          {
+            "Ref": "ApiHandlerServiceRole592E70E9",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::ManagedPolicy",
+    },
+    "ApiHandlersesSendEmail726F8BB3": {
+      "Properties": {
+        "Action": "ses:SendEmail",
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "ApiHandler5E7490E8",
+            "Arn",
+          ],
+        },
+        "Principal": "ses.amazonaws.com",
+      },
+      "Type": "AWS::Lambda::Permission",
     },
   },
   "Rules": {
