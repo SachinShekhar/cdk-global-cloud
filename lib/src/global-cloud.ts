@@ -51,7 +51,8 @@ export abstract class GlobalCloud {
         {
           builder: this.regionalStackBuilder(region),
           env: {
-            account: this.stage.account,
+            account:
+              this.stage.regionalAccounts?.[region] ?? this.stage.account,
             region,
           },
           tags,

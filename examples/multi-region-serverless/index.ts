@@ -1,6 +1,6 @@
 import * as cdk from 'aws-cdk-lib';
 
-import { Stage } from '../../lib';
+import { Regions, Stage } from '../../lib';
 import { ApiGlobalCloud } from './api-global-cloud';
 
 const app = new cdk.App();
@@ -19,10 +19,15 @@ new ApiGlobalCloud(
   })
 );
 
-new ApiGlobalCloud(
+export const prodAPICloud = new ApiGlobalCloud(
   app,
   new Stage('Prod', {
     account: '9876543210', // process.env can be used if you don't want to include this in your source control
+    regionalAccounts: {
+      ...Regions.EUROPE.map((region) => ({ [region]: '364572292763' })),
+      'ap-south-1': '877347237637',
+      'eu-west-1': '655435786756',
+    },
     terminationProtection: true,
   })
 );
